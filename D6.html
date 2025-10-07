@@ -74,7 +74,11 @@
 
     <div>
       <p>Anche questo testo è per gli esercizi</p>
-      <h2 id="changeMyColor" style="color: #ff00d6">
+      <h2
+        onclick="changeColorWithRandom()"
+        id="changeMyColor"
+        style="color: #ff00d6"
+      >
         Apri questa pagina con VSCode per scoprire gli esercizi
       </h2>
     </div>
@@ -188,7 +192,7 @@
       const revealFooterLink = function () {
         const footLink = document.querySelector("footer a");
         const href = footLink.getAttribute("href");
-        alert(href);
+        //alert(href);
       };
 
       revealFooterLink();
@@ -200,44 +204,86 @@
       const generateTable = function () {
         let createTable = document.createElement("table");
         createTable.innerHTML = `
+        
         <tr>
           <th>immagine</th>
           <th>nome</th>
-          <th>immagine</th>
-          <th>immagine</th>
+          <th>quantita</th>
+          <th>prezzo</th>
+        </tr>
         <tr>
+          <td>lorem</td>
+          <td>lorem</td>
+          <td>lorem</td>
+          <td>lorem</td>
+        </tr>
+          <tr>
+             <td>lorem</td>
+             <td>lorem</td>
+             <td>lorem</td>
+             <td>lorem</td>
+        </tr>
         <tr>
-          <th>immagine</th>
-          <th>nome</th>
-          <th>immagine</th>
-          <th>immagine</th>
+          <td>lorem</td>
+          <td>lorem</td>
+          <td>lorem</td>
+          <td>lorem</td>
+        </tr>
         <tr>
-          
-          <th>immagine</th>
-          <th>nome</th>
-          <th>immagine</th>
-          <th>immagine</th>
-        <tr>
+          <td>lorem</td>
+          <td>lorem</td>
+          <td>lorem</td>
+          <td>lorem</td>
+        </tr>
           `;
+        let focusEle = document.getElementById("tableArea");
+        focusEle.appendChild(createTable);
       };
-
+      generateTable();
       /* ESERCIZIO 12
          Crea una funzione che aggiunga una riga alla tabella precedentemente creata e fornisca i dati necessari come parametri
       */
 
-      const addRow = function () {};
+      const addRow = function (immagine, nome, quantita, prezzo) {
+        const table = document.querySelector("tbody");
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = `
+        <td>${immagine}</td>
+        <td>${nome}</td>
+        <td>${quantita}</td>
+        <td>${prezzo}</td>
+        `;
+        table.appendChild(newRow);
+      };
+
+      addRow("immagine", "carlo", "10", "costoso");
+      addRow("immagine", "carlo", "10", "lorem");
+      addRow("immagine", "carlo", "10", "lorem");
+      addRow("immagine", "carlo", "10", "lorem");
 
       /* ESERCIZIO 14
         Crea una funzione che nasconda le immagini della tabella quando eseguita
       */
 
-      const hideAllImages = function () {};
+      const hideAllImages = function () {
+        const hide = document.querySelector("table th");
+        //hide.style.opacity = "0%";
+      };
+      hideAllImages();
 
       /* EXTRA ESERCIZIO 15
         Crea una funzione che cambi il colore del h2 con id "changeMyColor" con un colore random ad ogni click ricevuto
       */
 
-      const changeColorWithRandom = function () {};
+      const changeColorWithRandom = function () {
+        const targetH2 = document.getElementById("changeMyColor");
+        targetH2.style.cursor = "pointer";
+        targetH2.style.userSelect = "none";
+        targetH2.addEventListener("click", () => {
+          const rngNumb = Math.floor(Math.random() * 0xffffff);
+          targetH2.style.color = "#" + rngNumb;
+        });
+      };
     </script>
   </body>
 </html>
