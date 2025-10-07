@@ -116,7 +116,7 @@
         */
 
       const changePcontent = function () {
-        figliDiP = document.querySelectorAll("div p");
+        let figliDiP = document.querySelectorAll("div p");
 
         for (let i = 0; i < figliDiP.length; i++) {
           figliDiP[i].innerText = "ho cambiato il testo di tutti i figli di p";
@@ -185,8 +185,11 @@
          Crea una funzione che, al click sul footer, riveli l'URL del link interno come contenuto di un alert()
         */
 
-      const revealFooterLink = function () {};
-      
+      const revealFooterLink = function () {
+        const footLink = document.querySelector("footer a");
+        const href = footLink.getAttribute("href");
+        alert(href);
+      };
 
       revealFooterLink();
       /* ESERCIZIO 11
@@ -194,7 +197,29 @@
          La tabella avrà 5 elementi e questa struttura: immagine, nome prodotto, quantità, prezzo
       */
 
-      const generateTable = function () {};
+      const generateTable = function () {
+        let createTable = document.createElement("table");
+        createTable.innerHTML = `
+        <tr>
+          <th>immagine</th>
+          <th>nome</th>
+          <th>immagine</th>
+          <th>immagine</th>
+        <tr>
+        <tr>
+          <th>immagine</th>
+          <th>nome</th>
+          <th>immagine</th>
+          <th>immagine</th>
+        <tr>
+          
+          <th>immagine</th>
+          <th>nome</th>
+          <th>immagine</th>
+          <th>immagine</th>
+        <tr>
+          `;
+      };
 
       /* ESERCIZIO 12
          Crea una funzione che aggiunga una riga alla tabella precedentemente creata e fornisca i dati necessari come parametri
